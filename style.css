@@ -1,0 +1,257 @@
+/* style.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: 'Courier New', Courier, monospace;
+  color: #cecece;
+  overflow: hidden;
+}
+
+/* Login estilo deep web */
+.login-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2000;
+}
+
+.login-screen h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff004c;
+  text-shadow: 0 0 10px #ff004c;
+}
+
+.login-screen input[type="text"] {
+  background: #000;
+  color: #ff004c;
+  border: 1px solid #ff004c;
+  padding: 10px;
+  font-size: 1rem;
+  outline: none;
+  text-align: center;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.login-screen button {
+  background: #000;
+  border: 1px solid #ff004c;
+  color: #ff004c;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-screen button:hover {
+  background: #0f0;
+  color: #000;
+}
+
+.login-error {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/* Tela de Boot estilo terminal */
+.boot-console {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 30px;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  z-index: 1600;
+}
+
+.console-text::after {
+  content: "_";
+  animation: blink 1s infinite step-start;
+}
+
+/* Loading screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  color: #0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  z-index: 1500;
+  display: none;
+  animation: fadein 1s ease;
+  flex-direction: column;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.typing-effect::after {
+  content: '_';
+  animation: blink 1s infinite step-start;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Tablet style */
+.tablet {
+  width: 90vw;
+  height: 90vh;
+  margin: 5vh auto;
+  border: 10px solid #111;
+  border-radius: 20px;
+  background: linear-gradient(to bottom right, #0a0a0a, #111111);
+  box-shadow: 0 0 30px #ff004c;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  animation: appear 1s ease forwards;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Home screen app grid */
+.home-screen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+.app-icon {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 0, 76, 0.2);
+  border: 2px solid #ff004c;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.app-icon:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 0, 76, 0.4);
+}
+
+.app-icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.app-icon span {
+  color: #ff004c;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  color: #ff004c;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.mapa-imagem {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 2px solid #ff004c;
+  border-radius: 10px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 20px;
+  text-align: center;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+h1 {
+  color: #ff004c;
+  text-align: center;
+}
+
+h2 {
+  color: #bdbdbd;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, rgba(255,0,76,0.1), transparent);
+  animation: pulse 2s infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.3; }
+}
